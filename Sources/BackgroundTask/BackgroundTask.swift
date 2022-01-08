@@ -4,7 +4,9 @@ import AVKit
 extension AVAudioPlayer {
     static let silence: AVAudioPlayer = {
         let url = Bundle.module.url(forResource: "silence", withExtension: "mp3")!
-        return try! AVAudioPlayer(contentsOf: url)
+        let player = try! AVAudioPlayer(contentsOf: url)
+        player.numberOfLoops = -1
+        return player
     }()
 }
 
